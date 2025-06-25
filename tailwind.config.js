@@ -13,5 +13,15 @@ export default {
     extend: {},
   },
   darkMode: "class",
-  plugins: [heroui()],
+  plugins: [
+    heroui({
+      layout: {
+        borderWidth: {
+          small: "1px",
+          medium: "1px",
+          large: "1px",
+        },
+      },
+    }),
+  ],
 };
