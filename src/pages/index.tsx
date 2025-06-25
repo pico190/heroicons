@@ -13,7 +13,7 @@ import outlineIcons from "@/icons/outline";
 import linearIcons from "@/icons/linear";
 import lineDuotoneIcons from "@/icons/line-duotone";
 
-function svgToReact(code: string, name: string) {
+function svgToReact(code: string, name: string, tabName: string) {
   let result: any = code;
   result = result.split("\n").join("\n          ");
   result = result
@@ -28,7 +28,7 @@ function svgToReact(code: string, name: string) {
   );
   result = result.replaceAll(
     `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">`,
-    `export const ${name[0].toUpperCase() + name.slice(1)} = (props: SVGAttributes<SVGElement>) => {
+    `export const ${name[0].toUpperCase() + name.slice(1)}${tabName} = (props: SVGAttributes<SVGElement>) => {
     return (
         <svg
             aria-hidden="true"
@@ -44,7 +44,15 @@ function svgToReact(code: string, name: string) {
   return result.trim();
 }
 
-function Icon({ icon, iconName }: { icon: any; iconName: string }) {
+function Icon({
+  icon,
+  iconName,
+  tabName,
+}: {
+  icon: any;
+  iconName: string;
+  tabName: string;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [svgCopied, setSvgCopied] = useState(false);
   const [reactCopied, setReactCopied] = useState(false);
@@ -106,7 +114,9 @@ function Icon({ icon, iconName }: { icon: any; iconName: string }) {
               variant="ghost"
               color="primary"
               onPress={() => {
-                navigator.clipboard.writeText(svgToReact(icon, iconName));
+                navigator.clipboard.writeText(
+                  svgToReact(icon, iconName, tabName)
+                );
                 setReactCopied(true);
                 setTimeout(() => {
                   setReactCopied(false);
@@ -146,6 +156,15 @@ export default function IndexPage() {
   const [icons, setIcons] = useState({});
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">();
+
+  const tabNames = {
+    broken: "Broken",
+    lineDuotone: "LineDuotone",
+    linear: "Linear",
+    outline: "Outline",
+    bold: "Bold",
+    boldDuotone: "Duotone",
+  };
 
   useEffect(() => {
     if (localStorage.getItem("theme")) {
@@ -280,7 +299,12 @@ export default function IndexPage() {
                   .map((iconName) => {
                     const icon = (icons as any)[category][iconName];
                     return (
-                      <Icon key={iconName} icon={icon} iconName={iconName} />
+                      <Icon
+                        key={iconName}
+                        icon={icon}
+                        iconName={iconName}
+                        tabName={tabNames[category]}
+                      />
                     );
                   })}
               </div>
