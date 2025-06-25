@@ -4690,5 +4690,8 @@ const brokenIcons = {
 </svg>
 `,
   },
+  soonMore: {
+    soonMore: ``,
+  },
 };
 export default brokenIcons;
