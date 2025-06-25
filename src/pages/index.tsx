@@ -107,9 +107,9 @@ function Icon({ icon, iconName }: { icon: any; iconName: string }) {
               color="primary"
               onPress={() => {
                 navigator.clipboard.writeText(svgToReact(icon, iconName));
-                setSvgCopied(true);
+                setReactCopied(true);
                 setTimeout(() => {
-                  setSvgCopied(false);
+                  setReactCopied(false);
                 }, 1500);
               }}
             >
