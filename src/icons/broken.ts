@@ -6906,6 +6906,98 @@ const brokenIcons = {
 <path d="M21 20L18.5044 17.8514C17.6996 17.1586 16.501 17.0896 15.6152 17.6851L15.3843 17.8403C14.7687 18.2542 13.9312 18.1848 13.3991 17.6758L10.0781 14.4989C9.41518 13.8648 8.35189 13.8309 7.64639 14.4214L6.29032 15.5565L2.5 19.1035" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
 </svg>
 `,
+    galleryFavourite: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 10.8717 2 9.87835 2.02008 9M12 2C7.28595 2 4.92893 2 3.46447 3.46447C3.03965 3.88929 2.73806 4.38921 2.52396 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M2 12.5001L3.75159 10.9675C4.66286 10.1702 6.03628 10.2159 6.89249 11.0721L11.1822 15.3618C11.8694 16.0491 12.9512 16.1428 13.7464 15.5839L14.0446 15.3744C15.1888 14.5702 16.7369 14.6634 17.7765 15.599L21 18.5001" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M16.0603 8.56987L16.5522 8.00369L16.5522 8.00369L16.0603 8.56987ZM18 3.96789L17.4683 4.4968C17.609 4.63832 17.8004 4.71789 18 4.71789C18.1996 4.71789 18.391 4.63832 18.5317 4.4968L18 3.96789ZM19.9397 8.56988L19.4478 8.0037L19.9397 8.56988ZM18 9.60565L18 8.85565H18L18 9.60565ZM16.5522 8.00369C16.0663 7.58156 15.5996 7.10931 15.2597 6.62977C14.9126 6.14017 14.75 5.7164 14.75 5.37542H13.25C13.25 6.16256 13.6077 6.89307 14.0359 7.49719C14.4712 8.11137 15.0347 8.67229 15.5685 9.13604L16.5522 8.00369ZM14.75 5.37542C14.75 4.44215 15.1697 3.97096 15.5841 3.81845C16.0103 3.66156 16.7133 3.73783 17.4683 4.4968L18.5317 3.43897C17.4867 2.38836 16.1897 1.99714 15.066 2.41078C13.9303 2.8288 13.25 3.96617 13.25 5.37542H14.75ZM20.4315 9.13605C20.9654 8.6723 21.5288 8.11138 21.9641 7.4972C22.3923 6.89307 22.75 6.16256 22.75 5.37541H21.25C21.25 5.71641 21.0874 6.14019 20.7403 6.62978C20.4004 7.10932 19.9337 7.58157 19.4478 8.0037L20.4315 9.13605ZM22.75 5.37541C22.75 3.96616 22.0697 2.82879 20.934 2.41078C19.8103 1.99714 18.5133 2.38836 17.4683 3.43897L18.5317 4.4968C19.2867 3.73783 19.9897 3.66156 20.4159 3.81845C20.8303 3.97096 21.25 4.44214 21.25 5.37541H22.75ZM15.5685 9.13604C16.3252 9.7935 16.929 10.3556 18 10.3556L18 8.85565C17.5762 8.85565 17.3851 8.72727 16.5522 8.00369L15.5685 9.13604ZM19.4478 8.0037C18.6149 8.72728 18.4239 8.85565 18 8.85565L18 10.3556C19.071 10.3557 19.6748 9.79351 20.4315 9.13605L19.4478 8.0037Z" fill="currentColor"/>
+</svg>
+`,
+    clapperboard: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5 8H2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M10.5 2.5L7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M17 2.5L13.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    clapperboardPlay: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.5 7.25C2.08579 7.25 1.75 7.58579 1.75 8C1.75 8.41421 2.08579 8.75 2.5 8.75V7.25ZM22 7.25H2.5V8.75H22V7.25Z" fill="currentColor"/>
+<path d="M10.5 2.5L7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M17 2.5L13.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M15 14.5C15 13.8666 14.338 13.4395 13.014 12.5852C11.6719 11.7193 11.0008 11.2863 10.5004 11.6042C10 11.9221 10 12.7814 10 14.5C10 16.2186 10 17.0779 10.5004 17.3958C11.0008 17.7137 11.6719 17.2807 13.014 16.4148C14.338 15.5605 15 15.1334 15 14.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    clapperboardEdit: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 21.9948C6.58687 21.9658 4.70529 21.7764 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M2.5 7.25C2.08579 7.25 1.75 7.58579 1.75 8C1.75 8.41421 2.08579 8.75 2.5 8.75V7.25ZM22 7.25H2.5V8.75H22V7.25Z" fill="currentColor"/>
+<path d="M10.5 2.5L7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M17 2.5L13.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M18.562 13.9354L18.9791 13.5183C19.6702 12.8272 20.7906 12.8272 21.4817 13.5183C22.1728 14.2094 22.1728 15.3298 21.4817 16.0209L21.0646 16.438M18.562 13.9354C18.562 13.9354 18.6142 14.8217 19.3962 15.6038C20.1783 16.3858 21.0646 16.438 21.0646 16.438M18.562 13.9354L14.7275 17.77C14.4677 18.0297 14.3379 18.1595 14.2262 18.3027C14.0945 18.4716 13.9815 18.6544 13.8894 18.8478C13.8112 19.0117 13.7532 19.1859 13.637 19.5344L13.2651 20.65L13.1448 21.0109M21.0646 16.438L17.23 20.2725C16.9703 20.5323 16.8405 20.6621 16.6973 20.7738C16.5284 20.9055 16.3456 21.0185 16.1522 21.1106C15.9883 21.1888 15.8141 21.2468 15.4656 21.363L14.35 21.7349L13.9891 21.8552M13.9891 21.8552L13.6281 21.9755C13.4567 22.0327 13.2676 21.988 13.1398 21.8602C13.012 21.7324 12.9673 21.5433 13.0245 21.3719L13.1448 21.0109M13.9891 21.8552L13.1448 21.0109" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+`,
+    clapperboardText: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21.5 8H2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M10.5 2.5L7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M17 2.5L13.5 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M6.5 14H14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M6.5 17.5H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    clapperboardOpen: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V11H16C17.8856 11 18.8284 11 19.4142 11.5858C19.7501 11.9217 19.8934 12.3749 19.9545 13.0559" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M4.00153 10.9997C3.51773 9.19412 3.27584 8.29135 3.48389 7.51489C3.62019 7.00622 3.88798 6.5424 4.26035 6.17003C4.82875 5.60162 5.73152 5.35973 7.53706 4.87593L14.54 2.99949C15.2133 2.8191 15.5499 2.72891 15.8447 2.70958C17.0555 2.63022 18.1949 3.28804 18.7315 4.37629C18.8622 4.64129 18.9524 4.97791 19.1328 5.65114C19.1929 5.87556 19.223 5.98776 19.2295 6.08604C19.2559 6.48964 19.0366 6.86943 18.6739 7.04832C18.5855 7.09188 18.4733 7.12195 18.2489 7.18208L4.00153 10.9997Z" stroke="currentColor" stroke-width="1.5"/>
+<path d="M14.7004 2.94135L14.0627 8.28861" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8.42184 4.62396L7.78409 9.97123" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    clapperboardOpenPlay: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.00153 10.9997C3.51773 9.19412 3.27584 8.29135 3.48389 7.51489C3.62019 7.00622 3.88798 6.5424 4.26035 6.17003C4.82875 5.60162 5.73152 5.35973 7.53706 4.87593L14.54 2.99949C15.2133 2.8191 15.5499 2.72891 15.8447 2.70958C17.0555 2.63022 18.1949 3.28804 18.7315 4.37629C18.8622 4.64129 18.9524 4.97791 19.1328 5.65114C19.1929 5.87556 19.223 5.98776 19.2295 6.08604C19.2559 6.48964 19.0366 6.86943 18.6739 7.04832C18.5855 7.09188 18.4733 7.12195 18.2489 7.18208L4.00153 10.9997Z" stroke="currentColor" stroke-width="1.5"/>
+<path d="M14.7004 2.94135L14.0627 8.28861" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8.42184 4.62396L7.78409 9.97123" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M14 16.5C14 16.0778 13.6028 15.793 12.8084 15.2235C12.0031 14.6462 11.6005 14.3575 11.3002 14.5695C11 14.7814 11 15.3543 11 16.5C11 17.6457 11 18.2186 11.3002 18.4305C11.6005 18.6425 12.0031 18.3538 12.8084 17.7765C13.6028 17.207 14 16.9222 14 16.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M20 16C20 18.8284 20 20.2426 19.1213 21.1213C18.2426 22 16.8284 22 14 22H10C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V11H16C17.8856 11 18.8284 11 19.4142 11.5858C19.7501 11.9217 19.8934 12.3749 19.9545 13.0559" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    soundwaveSquare: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 7L12 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M17 10L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M7 9L7 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    soundwaveCircle: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 7L12 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M17 10L17 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M7 9L7 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    soundwave: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4L12 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M16 7L16 9M16 17L16 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M8 17L8 15M8 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M20 11L20 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M4 11L4 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    record: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    stop: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    play: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3 12L3 18.9671C3 21.2763 5.53435 22.736 7.59662 21.6145L10.7996 19.8727M3 8L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L14.0026 18.131" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
+    skipNext: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 11L2 18.9671C2 21.2763 4.13419 22.736 5.87083 21.6145L16.6598 14.6474C18.4467 13.4935 18.4467 10.5065 16.6598 9.35258L5.87084 2.38548C4.13419 1.26402 2 2.72368 2 5.03289V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M22 5V12M22 16V19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
+`,
   },
   "soonMore...": {},
 };
