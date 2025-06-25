@@ -1,19 +1,11 @@
 import { Tabs, Tab } from "@heroui/tabs";
 import { Button } from "@heroui/button";
-import { Code } from "@heroui/code";
 import { Input } from "@heroui/input";
 import { useEffect, useState } from "react";
 import { Tooltip } from "@heroui/tooltip";
-import { Popover, PopoverTrigger, PopoverContent } from "@heroui/popover";
 import brokenIcons from "@/icons/broken";
-import { Slider } from "@heroui/slider";
 import StickyStyles from "@/components/stickyStyles";
-import {
-  MoonDuotone,
-  SearchLinear,
-  SettingsDuotone,
-  SunDuotone,
-} from "@/icons/component";
+import { MoonDuotone, SearchLinear, SunDuotone } from "@/icons/component";
 
 function cammelCaseToTitleCase(str: string) {
   const result = str
@@ -36,8 +28,8 @@ function normalize(str: string) {
 
 export default function IndexPage() {
   const [page, setPage] = useState("broken");
-  const [strokeWidth, setStrokeWidth] = useState<number>(1.5);
-  const [icons, setIcons] = useState(brokenIcons);
+  const [strokeWidth] = useState<number>(1.5); // ! deprecated
+  const [icons] = useState(brokenIcons);
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">();
 
