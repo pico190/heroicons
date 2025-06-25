@@ -36,6 +36,8 @@ export default function IndexPage() {
   useEffect(() => {
     if (localStorage.getItem("theme")) {
       setTheme(localStorage.getItem("theme") as "dark" | "light");
+    } else {
+      setTheme("light");
     }
   }, []);
 
