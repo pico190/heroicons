@@ -172,10 +172,7 @@ export default function IndexPage() {
                     const icon = (icons as any)[category][iconName];
                     return (
                       <Tooltip
-                        content={(cammelCaseToTitleCase(iconName) as any)
-                          .replaceAll("Usb", "USB")
-                          .replaceAll("Wi-fi", "Wi-Fi")
-                          .replaceAll("Dna", "DNA")}
+                        content={cammelCaseToTitleCase(iconName)}
                         showArrow={true}
                       >
                         <Button
