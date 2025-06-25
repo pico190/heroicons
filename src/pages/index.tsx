@@ -6,6 +6,11 @@ import { Tooltip } from "@heroui/tooltip";
 import brokenIcons from "@/icons/broken";
 import StickyStyles from "@/components/stickyStyles";
 import { MoonDuotone, SearchLinear, SunDuotone } from "@/icons/component";
+import boldDuotoneIcons from "@/icons/bold-duotone";
+import boldIcons from "@/icons/bold";
+import outlineIcons from "@/icons/outline";
+import linearIcons from "@/icons/linear";
+import lineDuotoneIcons from "@/icons/line-duotone";
 
 function cammelCaseToTitleCase(str: string) {
   const result = str
@@ -29,7 +34,7 @@ function normalize(str: string) {
 export default function IndexPage() {
   const [page, setPage] = useState("broken");
   const [strokeWidth] = useState<number>(1.5); // ! deprecated
-  const [icons] = useState(brokenIcons);
+  const [icons, setIcons] = useState({});
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">();
 
@@ -40,6 +45,32 @@ export default function IndexPage() {
       setTheme("light");
     }
   }, []);
+
+  useEffect(() => {
+    switch (page) {
+      case "broken":
+        setIcons(brokenIcons);
+        break;
+      case "line-duotone":
+        setIcons(lineDuotoneIcons);
+        break;
+      case "linear":
+        setIcons(linearIcons);
+        break;
+      case "outline":
+        setIcons(outlineIcons);
+        break;
+      case "bold":
+        setIcons(boldIcons);
+        break;
+      case "bold-duotone":
+        setIcons(boldDuotoneIcons);
+        break;
+      default:
+        setIcons(boldDuotoneIcons);
+        break;
+    }
+  }, [page]);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -78,21 +109,11 @@ export default function IndexPage() {
             onSelectionChange={(key: any) => setPage(key)}
           >
             <Tab key="broken" value="broken" title="Broken" />
-            <Tab
-              disabled
-              key="line-duotone"
-              value="line-duotone"
-              title="Line Duotone"
-            />
-            <Tab disabled key="linear" value="linear" title="Linear" />
-            <Tab disabled key="outline" value="outline" title="Outline" />
-            <Tab disabled key="bold" value="bold" title="Bold" />
-            <Tab
-              disabled
-              key="bold-duotone"
-              value="bold-duotone"
-              title="Bold Duotone"
-            />
+            <Tab key="line-duotone" value="line-duotone" title="Line Duotone" />
+            <Tab key="linear" value="linear" title="Linear" />
+            <Tab key="outline" value="outline" title="Outline" />
+            <Tab key="bold" value="bold" title="Bold" />
+            <Tab key="bold-duotone" value="bold-duotone" title="Bold Duotone" />
           </Tabs>
           <div className="ml-auto flex gap-1">
             <Button
