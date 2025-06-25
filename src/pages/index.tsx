@@ -5,12 +5,122 @@ import { useEffect, useState } from "react";
 import { Tooltip } from "@heroui/tooltip";
 import brokenIcons from "@/icons/broken";
 import StickyStyles from "@/components/stickyStyles";
+import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
 import { MoonDuotone, SearchLinear, SunDuotone } from "@/icons/component";
 import boldDuotoneIcons from "@/icons/bold-duotone";
 import boldIcons from "@/icons/bold";
 import outlineIcons from "@/icons/outline";
 import linearIcons from "@/icons/linear";
 import lineDuotoneIcons from "@/icons/line-duotone";
+
+function svgToReact(code: string, name: string) {
+  let result: any = code;
+  result = result.split("\n").join("\n          ");
+  result = result
+    .replaceAll("-w", "W")
+    .replaceAll("-l", "L")
+    .replaceAll("-r", "R");
+  result = result.replaceAll(
+    "  </svg>",
+    `</svg>
+    )
+}`
+  );
+  result = result.replaceAll(
+    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">`,
+    `export const ${name[0].toUpperCase() + name.slice(1)} = (props: SVGAttributes<SVGElement>) => {
+    return (
+        <svg
+            aria-hidden="true"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="presentation"
+            viewBox="0 0 24 24"
+            width="1em"
+            {...props}
+        >`
+  );
+  return result.trim();
+}
+
+function Icon({ icon, iconName }: { icon: any; iconName: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [svgCopied, setSvgCopied] = useState(false);
+  const [reactCopied, setReactCopied] = useState(false);
+  return (
+    <Popover
+      showArrow={true}
+      placement="top"
+      isOpen={isOpen}
+      onOpenChange={(a) => {
+        a === false ? setIsOpen(false) : void 0;
+      }}
+    >
+      <PopoverTrigger>
+        <span className="relative block float-left">
+          <Tooltip content={cammelCaseToTitleCase(iconName)} showArrow={true}>
+            <Button
+              isIconOnly={true}
+              id={iconName}
+              onPress={() => {
+                setIsOpen(!isOpen);
+              }}
+              key={iconName}
+              className="float-left *:active:scale-75 flex gap-2 bg-[rgba(0,0,0,.02)] dark:bg-[rgba(255,255,255,.03)] justify-center flex-col items-center overflow-hidden mb-1 mr-1 size-16 rounded-lg max-w-16 max-h-16 p-2"
+            >
+              <div
+                data-icon={iconName}
+                className="transition-all dark:text-neutral-300"
+                dangerouslySetInnerHTML={{
+                  __html: icon.replaceAll(
+                    `width="24" height="24"`,
+                    `width="32" height="32"`
+                  ),
+                }}
+              ></div>
+            </Button>
+          </Tooltip>
+        </span>
+      </PopoverTrigger>
+      <PopoverContent>
+        <div className="p-2">
+          <h1 className="text-3xl text-center tracking-tighter font-bold">
+            {cammelCaseToTitleCase(iconName)}
+          </h1>
+          <div className="flex flex-col gap-1 mt-3">
+            <Button
+              variant="solid"
+              color="warning"
+              onPress={() => {
+                navigator.clipboard.writeText(icon);
+                setSvgCopied(true);
+                setTimeout(() => {
+                  setSvgCopied(false);
+                }, 1500);
+              }}
+            >
+              {svgCopied ? "Copied!" : "Copy SVG Code"}
+            </Button>
+            <Button
+              variant="ghost"
+              color="primary"
+              onPress={() => {
+                navigator.clipboard.writeText(svgToReact(icon, iconName));
+                setSvgCopied(true);
+                setTimeout(() => {
+                  setSvgCopied(false);
+                }, 1500);
+              }}
+            >
+              {reactCopied ? "Copied!" : "Copy React Component"}
+            </Button>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
+  );
+}
 
 function cammelCaseToTitleCase(str: string) {
   const result = str
@@ -33,7 +143,6 @@ function normalize(str: string) {
 
 export default function IndexPage() {
   const [page, setPage] = useState("broken");
-  const [strokeWidth] = useState<number>(1.5); // ! deprecated
   const [icons, setIcons] = useState({});
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">();
@@ -171,33 +280,7 @@ export default function IndexPage() {
                   .map((iconName) => {
                     const icon = (icons as any)[category][iconName];
                     return (
-                      <Tooltip
-                        content={cammelCaseToTitleCase(iconName)}
-                        showArrow={true}
-                      >
-                        <Button
-                          isIconOnly={true}
-                          id={iconName}
-                          key={iconName}
-                          className="float-left *:active:scale-75 flex gap-2 bg-[rgba(0,0,0,.02)] dark:bg-[rgba(255,255,255,.03)] justify-center flex-col items-center overflow-hidden mb-1 mr-1 size-16 rounded-lg max-w-16 max-h-16 p-2"
-                        >
-                          <div
-                            data-icon={iconName}
-                            className="transition-all dark:text-neutral-300"
-                            dangerouslySetInnerHTML={{
-                              __html: icon
-                                .replaceAll(
-                                  `width="24" height="24"`,
-                                  `width="32" height="32"`
-                                )
-                                .replaceAll(
-                                  `stroke-width="1.5"`,
-                                  `stroke-width="${strokeWidth}"`
-                                ),
-                            }}
-                          ></div>
-                        </Button>
-                      </Tooltip>
+                      <Icon key={iconName} icon={icon} iconName={iconName} />
                     );
                   })}
               </div>
