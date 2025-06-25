@@ -303,7 +303,7 @@ export default function IndexPage() {
                         key={iconName}
                         icon={icon}
                         iconName={iconName}
-                        tabName={tabNames[category]}
+                        tabName={tabNames[page]}
                       />
                     );
                   })}
