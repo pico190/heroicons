@@ -237,10 +237,28 @@ export default function IndexPage() {
             onSelectionChange={(key: any) => setPage(key)}
           >
             <Tab key="broken" value="broken" title="Broken" />
-            <Tab key="line-duotone" value="line-duotone" title="Line Duotone" />
-            <Tab key="linear" value="linear" title="Linear" />
-            <Tab key="outline" value="outline" title="Outline" />
-            <Tab key="bold" value="bold" title="Bold" />
+            <Tab
+              disabled
+              isDisabled
+              key="line-duotone"
+              value="line-duotone"
+              title="Line Duotone"
+            />
+            <Tab
+              disabled
+              isDisabled
+              key="linear"
+              value="linear"
+              title="Linear"
+            />
+            <Tab
+              disabled
+              isDisabled
+              key="outline"
+              value="outline"
+              title="Outline"
+            />
+            <Tab disabled isDisabled key="bold" value="bold" title="Bold" />
             <Tab key="bold-duotone" value="bold-duotone" title="Bold Duotone" />
           </Tabs>
           <div className="ml-auto flex gap-1">
