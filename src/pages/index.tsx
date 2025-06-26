@@ -164,11 +164,11 @@ export default function IndexPage() {
 
   const tabNames = {
     broken: "Broken",
-    lineDuotone: "LineDuotone",
+    "line-duotone": "LineDuotone",
     linear: "Linear",
     outline: "Outline",
     bold: "Bold",
-    boldDuotone: "Duotone",
+    "bold-duotone": "Duotone",
   };
 
   useEffect(() => {
