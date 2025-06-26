@@ -6,7 +6,12 @@ import { Tooltip } from "@heroui/tooltip";
 import brokenIcons from "@/icons/broken";
 import StickyStyles from "@/components/stickyStyles";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
-import { MoonDuotone, SearchLinear, SunDuotone } from "@/icons/component";
+import {
+  MoonDuotone,
+  SearchLinear,
+  StickerSquareBroken,
+  SunDuotone,
+} from "@/icons/component";
 import boldDuotoneIcons from "@/icons/bold-duotone";
 import boldIcons from "@/icons/bold";
 import outlineIcons from "@/icons/outline";
@@ -236,7 +241,16 @@ export default function IndexPage() {
             selectedKey={page}
             onSelectionChange={(key: any) => setPage(key)}
           >
-            <Tab key="broken" value="broken" title="Broken" />
+            <Tab
+              key="broken"
+              value="broken"
+              title={
+                <span className="flex gap-1 items-center">
+                  <StickerSquareBroken />
+                  <span>Broken</span>
+                </span>
+              }
+            />
             <Tab
               disabled
               isDisabled
