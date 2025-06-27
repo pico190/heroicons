@@ -102,7 +102,7 @@ function Icon({
           <h1 className="text-3xl text-center tracking-tighter font-bold">
             {cammelCaseToTitleCase(iconName)}
           </h1>
-          <div className="flex flex-col gap-1 mt-3">
+          <div className="flex flex-col gap-1 mt-3 w-72">
             <Button
               variant="solid"
               color="warning"
@@ -158,7 +158,7 @@ function normalize(str: string) {
 }
 
 export default function IndexPage() {
-  const [page, setPage] = useState("broken");
+  const [page, setPage] = useState("bold-duotone");
   const [icons, setIcons] = useState({});
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useState<"light" | "dark">();
