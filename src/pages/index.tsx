@@ -10,6 +10,7 @@ import {
   MoonDuotone,
   SearchLinear,
   StickerSquareBroken,
+  StickerSquareDuotone,
   SunDuotone,
 } from "@/icons/component";
 import boldDuotoneIcons from "@/icons/bold-duotone";
@@ -273,7 +274,16 @@ export default function IndexPage() {
               title="Outline"
             />
             <Tab disabled isDisabled key="bold" value="bold" title="Bold" />
-            <Tab key="bold-duotone" value="bold-duotone" title="Bold Duotone" />
+            <Tab
+              key="bold-duotone"
+              value="bold-duotone"
+              title={
+                <span className="flex gap-1 items-center">
+                  <StickerSquareDuotone />
+                  <span>Bold Duotone</span>
+                </span>
+              }
+            />
           </Tabs>
           <div className="ml-auto flex gap-1">
             <Button
