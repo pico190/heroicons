@@ -98,11 +98,11 @@ function Icon({
         </span>
       </PopoverTrigger>
       <PopoverContent>
-        <div className="p-2">
+        <div className="p-2 py-4 relative">
           <h1 className="text-3xl text-center tracking-tighter font-bold">
             {cammelCaseToTitleCase(iconName)}
           </h1>
-          <div className="flex flex-col gap-1 mt-3 w-72">
+          <div className="flex flex-col gap-1 mt-3 min-w-72">
             <Button
               variant="solid"
               color="warning"
