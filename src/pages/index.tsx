@@ -128,7 +128,7 @@ function Icon({
                 data-icon={iconName}
                 className="transition-all dark:text-neutral-300"
                 dangerouslySetInnerHTML={{
-                  __html: icon.replaceAll(
+                  __html: (icon as any).replaceAll(
                     `width="24" height="24"`,
                     `width="32" height="32"`
                   ),
