@@ -1,23 +1,21 @@
 import { Tabs, Tab } from "@heroui/tabs";
 import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tooltip } from "@heroui/tooltip";
-import brokenIcons from "@/icons/broken";
 import StickyStyles from "@/components/stickyStyles";
 import { Popover, PopoverContent, PopoverTrigger } from "@heroui/popover";
 import {
   MoonDuotone,
   SearchLinear,
+  StickerSquareBold,
   StickerSquareBroken,
   StickerSquareDuotone,
+  StickerSquareLinear,
+  StickerSquareLineDuotone,
+  StickerSquareOutline,
   SunDuotone,
 } from "@/icons/component";
-import boldDuotoneIcons from "@/icons/bold-duotone";
-import boldIcons from "@/icons/bold";
-import outlineIcons from "@/icons/outline";
-import linearIcons from "@/icons/linear";
-import lineDuotoneIcons from "@/icons/line-duotone";
 
 function svgToReact(code: string, name: string, tabName: string) {
   let result: any = code;
@@ -49,19 +47,62 @@ function svgToReact(code: string, name: string, tabName: string) {
   );
   return result.trim();
 }
+function sanitizeReactIconName(input: string): string {
+  let cleaned = input.replace(/[^a-zA-Z0-9]/g, "");
+  cleaned = cleaned.replace(/^[0-9]+/, "");
+  if (cleaned.length === 0) return "";
+  return cleaned[0].toUpperCase() + cleaned.slice(1);
+}
 
 function Icon({
-  icon,
+  iconFunction,
   iconName,
   tabName,
 }: {
-  icon: any;
+  iconFunction: any;
   iconName: string;
   tabName: string;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [svgCopied, setSvgCopied] = useState(false);
   const [reactCopied, setReactCopied] = useState(false);
+  const [icon, setIcon] = useState("");
+  const iconRef = useRef<HTMLSpanElement | null>(null);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!iconRef.current) return;
+    if (!hasLoaded) {
+      setIcon("");
+    }
+
+    const observer = new IntersectionObserver(
+      async (entries, obs) => {
+        entries.forEach(async (entry) => {
+          if (entry.isIntersecting && !hasLoaded) {
+            setHasLoaded(true);
+            const svg = await iconFunction();
+            setIcon(svg.replaceAll("black", "currentColor"));
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(iconRef.current);
+
+    return () => {
+      if (iconRef.current) observer.unobserve(iconRef.current);
+    };
+  }, [iconFunction, hasLoaded, tabName]);
+
+  useEffect(() => {
+    setHasLoaded(false);
+  }, [tabName]);
+
   return (
     <Popover
       showArrow={true}
@@ -72,7 +113,7 @@ function Icon({
       }}
     >
       <PopoverTrigger>
-        <span className="relative block float-left">
+        <span ref={iconRef} className="relative block float-left">
           <Tooltip content={cammelCaseToTitleCase(iconName)} showArrow={true}>
             <Button
               isIconOnly={true}
@@ -121,7 +162,7 @@ function Icon({
               color="primary"
               onPress={() => {
                 navigator.clipboard.writeText(
-                  svgToReact(icon, iconName, tabName)
+                  svgToReact(icon, sanitizeReactIconName(iconName), tabName)
                 );
                 setReactCopied(true);
                 setTimeout(() => {
@@ -156,6 +197,29 @@ function normalize(str: string) {
     .toLowerCase()
     .trim();
 }
+const allSvgs = import.meta.glob("/src/icons/svg/*/*/*.svg", {
+  as: "raw",
+});
+
+export function getIcons(page: string) {
+  const data: Record<string, Record<string, () => Promise<string>>> = {};
+
+  for (const path in allSvgs) {
+    if (!path.includes(`/src/icons/svg/${page}/`)) continue;
+
+    const parts = path.split("/");
+    const category = parts[parts.length - 2];
+    const iconName = parts[parts.length - 1].replace(".svg", "");
+
+    if (!data[category]) {
+      data[category] = {};
+    }
+
+    data[category][iconName] = allSvgs[path]; // guarda la función sin ejecutarla
+  }
+
+  return data;
+}
 
 export default function IndexPage() {
   const [page, setPage] = useState("bold-duotone");
@@ -181,29 +245,32 @@ export default function IndexPage() {
   }, []);
 
   useEffect(() => {
-    switch (page) {
-      case "broken":
-        setIcons(brokenIcons);
-        break;
-      case "line-duotone":
-        setIcons(lineDuotoneIcons);
-        break;
-      case "linear":
-        setIcons(linearIcons);
-        break;
-      case "outline":
-        setIcons(outlineIcons);
-        break;
-      case "bold":
-        setIcons(boldIcons);
-        break;
-      case "bold-duotone":
-        setIcons(boldDuotoneIcons);
-        break;
-      default:
-        setIcons(boldDuotoneIcons);
-        break;
+    async function load() {
+      switch (page) {
+        case "broken":
+          setIcons(await getIcons("Broken"));
+          break;
+        case "line-duotone":
+          setIcons(await getIcons("Line Duotone"));
+          break;
+        case "linear":
+          setIcons(await getIcons("Linear"));
+          break;
+        case "outline":
+          setIcons(await getIcons("Outline"));
+          break;
+        case "bold":
+          setIcons(await getIcons("Bold"));
+          break;
+        case "bold-duotone":
+          setIcons(await getIcons("Bold Duotone"));
+          break;
+        default:
+          setIcons(await getIcons("Linear"));
+          break;
+      }
     }
+    load();
   }, [page]);
 
   useEffect(() => {
@@ -253,27 +320,45 @@ export default function IndexPage() {
               }
             />
             <Tab
-              disabled
-              isDisabled
               key="line-duotone"
               value="line-duotone"
-              title="Line Duotone"
+              title={
+                <span className="flex gap-1 items-center">
+                  <StickerSquareLineDuotone />
+                  <span>Line Duotone</span>
+                </span>
+              }
             />
             <Tab
-              disabled
-              isDisabled
               key="linear"
               value="linear"
-              title="Linear"
+              title={
+                <span className="flex gap-1 items-center">
+                  <StickerSquareLinear />
+                  <span>Linear</span>
+                </span>
+              }
             />
             <Tab
-              disabled
-              isDisabled
               key="outline"
               value="outline"
-              title="Outline"
+              title={
+                <span className="flex gap-1 items-center">
+                  <StickerSquareOutline />
+                  <span>Outline</span>
+                </span>
+              }
             />
-            <Tab disabled isDisabled key="bold" value="bold" title="Bold" />
+            <Tab
+              key="bold"
+              value="bold"
+              title={
+                <span className="flex gap-1 items-center">
+                  <StickerSquareBold />
+                  <span>Bold</span>
+                </span>
+              }
+            />
             <Tab
               key="bold-duotone"
               value="bold-duotone"
@@ -343,7 +428,7 @@ export default function IndexPage() {
                     return (
                       <Icon
                         key={iconName}
-                        icon={icon}
+                        iconFunction={icon}
                         iconName={iconName}
                         tabName={tabNames[page]}
                       />
