@@ -114,7 +114,7 @@ function Icon({
     >
       <PopoverTrigger>
         <span ref={iconRef} className="relative block float-left">
-          <Tooltip content={cammelCaseToTitleCase(iconName)} showArrow={true}>
+          <Tooltip content={iconName} showArrow={true}>
             <Button
               isIconOnly={true}
               id={iconName}
@@ -141,7 +141,7 @@ function Icon({
       <PopoverContent>
         <div className="p-2 py-4 relative">
           <h1 className="text-3xl text-center tracking-tighter font-bold">
-            {cammelCaseToTitleCase(iconName)}
+            {iconName}
           </h1>
           <div className="flex flex-col gap-1 mt-3 min-w-72">
             <Button
@@ -179,16 +179,6 @@ function Icon({
   );
 }
 
-function cammelCaseToTitleCase(str: string) {
-  const result = str
-    .replace(/([A-Z])/g, " $1")
-    .replace(/([0-9]+)/g, " $1")
-    .trim();
-  return (
-    result.charAt(0).toUpperCase() +
-    (result.slice(1) as any).replaceAll(",", ", ")
-  );
-}
 function normalize(str: string) {
   return str
     .replace(/([a-z])([A-Z])/g, "$1 $2")
@@ -285,9 +275,6 @@ export default function IndexPage() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-yellow-200 to-orange-100 w-full text-center flex gap-1 items-center justify-center dark:from-yellow-900/25 dark:to-orange-900/25 p-4">
-        🚧 Work in progress 🚧
-      </div>
       <div className="p-12">
         <div className="firefox-blur bg-orange-500 z-30 w-24 h-[500px] blur-[300px] pointer-events-none top-12 -rotate-45 left-24 fixed " />
         <div className="firefox-blur bg-pink-500 z-30 size-72 blur-[500px] pointer-events-none top-12 right-24 fixed " />
@@ -407,12 +394,12 @@ export default function IndexPage() {
               >
                 {search.length < 1 && (
                   <h2 className="uppercase text-sm mb-1 font-bold opacity-75 mt-4">
-                    {cammelCaseToTitleCase(category)}
+                    {category}
                   </h2>
                 )}
                 {Object.keys((icons as any)[category])
                   .filter((a) => {
-                    const title = normalize(cammelCaseToTitleCase(a));
+                    const title = normalize(a);
                     const query = normalize(search);
                     return (
                       title.includes(query) ||

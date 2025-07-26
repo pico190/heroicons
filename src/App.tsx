@@ -5,7 +5,7 @@ import IndexPage from "@/pages/index";
 function App() {
   return (
     <Routes>
-      <Route element={<IndexPage />} path="/" />
+      <Route element={<IndexPage />} path="*" />
     </Routes>
   );
 }
