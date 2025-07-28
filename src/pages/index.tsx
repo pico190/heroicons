@@ -281,7 +281,7 @@ export default function IndexPage() {
         <div className="flex mb-4">
           <div className="flex-col flex">
             <h1 className="text-7xl font-bold tracking-tighter">
-              HeroUI{" "}
+              Solar{" "}
               <span className="bg-gradient-to-r dark:from-purple-300 from-purple-800 to-pink-800 dark:to-pink-300 bg-clip-text text-transparent">
                 Icons
               </span>
